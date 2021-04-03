@@ -1,0 +1,82 @@
+body {
+  background: linear-gradient(80deg, #062e06, #0c2b0c, #061806, #070e09);
+  margin: 0rem 16rem;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.App-logo {
+  height: 20vmin;
+  pointer-events: none;
+  margin: 2rem;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+.styling-search {
+  padding: 1rem 13rem;
+  border: 3.5px solid rgb(106, 106, 139);
+  border-radius: 5px;
+  margin: 1.5rem;
+}
+
+::placeholder {
+  font-size: 1rem;
+  color: rgb(109, 104, 104);
+  font-family: inherit;
+  text-align: left;
+  opacity: 10rem;
+}
+
+.style-map {
+  flex-wrap: wrap;
+  width: 300px;
+  height: 300px;
+  margin: 20px 0px;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.information {
+  font-size: bold;
+  margin-bottom: 10rem;
+  margin-top: 2rem;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.information-container {
+  width: 300px;
+  height: 300px;
+  background-color: rgb(63, 60, 60);
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  /* transform: scaleX(-1);*/
+}
+
+.name {
+  font-size: 2rem;
+
+  padding: 2rem;
+  align-content: center;
+  width: 100%;
+}
+
+.style-map:hover .information-container {
+  transform: scaleX(1);
+}
