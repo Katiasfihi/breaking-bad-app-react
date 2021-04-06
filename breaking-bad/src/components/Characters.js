@@ -12,9 +12,9 @@ class Characters extends Component {
     //const [data, setData ] = useState([])
 
     
-     state = {
+  /* state = {
        data: []
-     }
+     }*/
 
 
 
@@ -30,11 +30,11 @@ class Characters extends Component {
       }; */
 
   
-    componentDidMount() {
+   /* componentDidMount() {
       fetch('https://www.breakingbadapi.com/api/characters')
         .then(response => response.json())
         .then(data => this.setState({ data }));
-    }
+    }*/
 
     /*return (
 
@@ -64,9 +64,12 @@ class Characters extends Component {
 
     render() {
 
+      const data  = this.props.data
+
+
       return (
         <div className='map-container'>
-        {this.state.data.map((character) => (
+        { data && data.map((character) => (
 
             <Flippy
               flipOnHover={false} // default false

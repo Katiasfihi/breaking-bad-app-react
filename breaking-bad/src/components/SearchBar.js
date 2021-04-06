@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Characters from './Characters'
 
 
 
@@ -7,42 +8,46 @@ function SearchBar() {
  const [data, setData ] = useState([])
  const [search, setSearch] = useState('')
 
- const URL_API = `https://www.breakingbadapi.com//api/characters?name=${search}`
+ const URL_API = `https://www.breakingbadapi.com/api/characters?name=${search}`
+ const API = 'https://www.breakingbadapi.com/api/characters'
 
- const fetch = async (search) => {
-    const response = await fetch(URL_API);
+
+
+ const getMyData = async (ifCalledFromGetResult) => {
+     
+
+    const dynamicUrl = ifCalledFromGetResult ? URL_API : API
+
+    const response = await fetch(dynamicUrl);
     const data = await response.json();
     setData(data);
  }
 
- 
 
  const getSearch = (e) => {
      setSearch(e.target.value)
  }
- console.log(search, 'katia')
 
  const getResult = (e) => {
      e.preventDefault()
-     fetch(search)     
-     console.log(e, 'hello')
+     getMyData(true)     
  }
 
-
-
-/* useEffect((e) => {
-    getResult();
-  }, [] );*/
  
+
+useEffect((e) => {
+    getMyData()
+  }, [] );
   
 
     return (
 
         <div>
-            <form >
-                <input onSubmit={(e) => getResult(e) } onChange={getSearch}  type='text' placeholder='Search characters...' className='styling-search'>
+            <form onSubmit={getResult}>
+                <input  onChange={getSearch}  type='text' placeholder='Search characters...' className='styling-search'>
                 </input>
             </form>
+            <Characters data={data} setData={setData} />
         </div>
     )
     }
