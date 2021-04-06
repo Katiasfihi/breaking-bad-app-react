@@ -2,12 +2,15 @@ import React from 'react'
 
 
 
-function Header() {
+function Header( {getMyData} ) {
+    
+
+
     return (
 
         <div>
-         <header>
-            <img src='/breaking-bad-logo.png' className="App-logo" alt="logo" />
+         <header onClick={() => getMyData()}>
+            <img  src='/breaking-bad-logo.png' className="App-logo" alt="logo" />
          </header>
         </div>
     )

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Header from './Header'
 import Characters from './Characters'
 
 
@@ -24,6 +25,8 @@ function SearchBar() {
  }
 
 
+
+
  const getSearch = (e) => {
      setSearch(e.target.value)
  }
@@ -43,6 +46,7 @@ useEffect((e) => {
     return (
 
         <div>
+            <Header getMyData={getMyData}/>
             <form onSubmit={getResult}>
                 <input  onChange={getSearch}  type='text' placeholder='Search characters...' className='styling-search'>
                 </input>
